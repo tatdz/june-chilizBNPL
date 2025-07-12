@@ -79,10 +79,6 @@ Experience June BNPL in action:
 ### Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/tatdz/june-chilizBNPLnew.git
-cd june-bnpl
-
 # Install dependencies
 npm install
 
@@ -90,23 +86,27 @@ npm install
 npm run dev
 ```
 
-The application will be available at `http://localhost:5000`
+The application will be available at `http://localhost:8080`
 
 ### Environment Variables
 
 Create a `.env` file in the root directory:
 
 ```env
-# Database
+
+# Database connection
+# Required: The application needs a database to store and retrieve data.
 DATABASE_URL=postgresql://username:password@localhost:5432/june_bnpl
 
-# Blockchain & APIs
+# Blockchain & API Keys
+# Optional: Only required if you want to enable blockchain, Stripe, or TrueLayer integrations.
 MORALIS_API_KEY=your_moralis_api_key
 VITE_STRIPE_PUBLIC_KEY=pk_test_your_stripe_public_key
 STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
 TRUELAYER_CLIENT_ID=your_truelayer_client_id
 
-# Optional: Production settings
+# Application environment
+# Optional: Set to 'production' for production builds, otherwise defaults to 'development'.
 NODE_ENV=development
 ```
 
@@ -257,7 +257,7 @@ npm start
 docker build -t june-bnpl .
 
 # Run container
-docker run -p 5000:5000 --env-file .env june-bnpl
+docker run -p 8080:8080 --env-file .env june-bnpl
 ```
 
 ## 🛡️ Security
@@ -309,6 +309,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Yield-earning mechanism to reduce payment burden
 - Comprehensive verification system combining Web3 and traditional finance
 - Sports-focused asset marketplace
+- Expansion of Chiliz/Socios ecosystem beyond sports --> reaching out to mainstream users and wider range of DeFi apps/protocols
 
 
 ---
