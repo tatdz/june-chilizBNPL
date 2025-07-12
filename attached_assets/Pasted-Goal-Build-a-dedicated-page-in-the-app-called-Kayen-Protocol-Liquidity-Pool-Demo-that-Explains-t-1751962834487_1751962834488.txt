@@ -1,0 +1,121 @@
+Goal
+Build a dedicated page in the app called "Kayen Protocol Liquidity Pool Demo" that:
+
+Explains the integration between JuneBNPL and Kayen Protocol.
+
+Allows users to trigger and view a full BNPL liquidity flow live on Chiliz Spicy Testnet.
+
+Page Requirements
+1. New Page
+Create a separate page titled "Kayen Protocol Liquidity Pool Demo".
+
+2. Educational Section
+Provide a clear explanation of the process:
+
+After a user makes a 25% down payment, the JuneBNPL smart contract (0x858471480359DC3f01aFeCDE876FB46a3Ff7a9a3) automatically draws the remaining 75% from the Kayen Protocol liquidity pool (0x355f32B0Ce8Ae3542FbE77298FFC30A3CB9E593b) on the Chiliz Spicy Testnet.
+
+The merchant receives 100% of the purchase price instantly.
+
+Kayen LPs provide the liquidity and earn:
+
+Swap fees from liquidity pools.
+
+A portion of June protocol fees from BNPL repayments.
+
+Fees and repayments are distributed pro-rata to LPs based on their share of the pool.
+
+3. Live Testnet Demo
+Add a "Showcase Live on Testnet" button.
+
+When clicked, this should:
+
+Simulate a user making a 25% down payment (use testnet data or a test transaction).
+
+Trigger the JuneBNPL contract to draw the remaining 75% from the Kayen Protocol liquidity pool.
+
+Display a step-by-step transaction log in the UI, including:
+
+Down payment received.
+
+75% drawn from Kayen pool.
+
+Merchant receives full payment.
+
+LPs accrue fees/repayments pro-rata.
+
+4. Real-Time Data & Status
+Show real-time updates from the Chiliz Spicy Testnet.
+
+Display transaction hashes and direct links to the Spicy Explorer (https://spicy.routescan.io/) for each step.
+
+5. Testing
+Thoroughly test the demo on Chiliz Spicy Testnet to ensure all contract interactions are functional and visible in the UI and on-chain.
+
+Step-by-Step Guide: How to Showcase the Kayen Protocol BNPL Flow on Spicy Testnet
+Prepare Test Data:
+
+Ensure you have a test user wallet with CHZ on Chiliz Spicy Testnet (use https://spicy-faucet.chiliz.com/).
+
+Confirm that the JuneBNPL (0x858471480359DC3f01aFeCDE876FB46a3Ff7a9a3) and KayenPool (0x355f32B0Ce8Ae3542FbE77298FFC30A3CB9E593b) contracts are set up and funded.
+
+Initiate Down Payment:
+
+On the demo page, simulate or allow the user to make a 25% down payment for a sample purchase (e.g., 250 CHZ for a 1000 CHZ item).
+
+Confirm the down payment transaction on-chain and display the transaction hash with a link to Spicy Explorer.
+
+Trigger Liquidity Draw:
+
+After the down payment is confirmed, the JuneBNPL contract should automatically call the Kayen Protocol pool contract to draw the remaining 75% (e.g., 750 CHZ) from the liquidity pool.
+
+Confirm the liquidity draw transaction on-chain and display the transaction hash/link.
+
+Merchant Payout:
+
+The combined 1000 CHZ (down payment + liquidity) is sent to the merchant’s address.
+
+Confirm and display the merchant payout transaction on Spicy Explorer.
+
+LP Fee Accrual and Distribution:
+
+Show how swap fees and protocol fees from repayments are calculated and distributed to LPs based on their share of the pool.
+
+Display simulated LP balances and fee accruals, with links to relevant on-chain events or transactions.
+
+UI Log:
+
+For each step, display a clear status update, such as:
+
+✅ Down payment received (Tx: [hash])
+
+✅ 75% drawn from Kayen pool (Tx: [hash])
+
+✅ Merchant paid in full (Tx: [hash])
+
+✅ LPs accrue fees (details shown)
+
+Testing & Validation:
+
+Run through the entire flow on testnet and verify every transaction is visible on https://spicy.routescan.io/.
+
+Ensure all UI elements update in real time and all links are correct.
+
+Important: Address Removal Request
+Please ensure that the smart contract address 0x0013553e6179f0DC3C8515b80F4D8e69fB0E246e and any description or reference to it are completely removed from:
+
+All code
+
+GitHub README files
+
+Documentation
+
+The demo page and any related resources
+
+Use only the new contract addresses:
+
+KayenPool: 0x355f32B0Ce8Ae3542FbE77298FFC30A3CB9E593b
+
+JuneBNPL: 0x858471480359DC3f01aFeCDE876FB46a3Ff7a9a3
+
+If you need testnet contract ABIs, addresses, or further technical details, please request them.
+The demo must be fully functional, tested, and all steps must be visible both in the app UI and on Spicy Explorer before submission.

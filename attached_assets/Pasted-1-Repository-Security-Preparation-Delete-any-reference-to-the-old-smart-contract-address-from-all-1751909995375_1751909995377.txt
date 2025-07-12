@@ -1,0 +1,298 @@
+1. Repository & Security Preparation
+Delete any reference to the old smart contract address from all code, documentation, and the README file.
+
+Use the new smart contract address:
+0x0013553e6179f0DC3C8515b80F4D8e69fB0E246e
+on Chiliz Spicy Testnet.
+
+2. Main Page UI & Messaging
+Main page message (short version):
+June lets Socios and Chiliz users buy what they love—Fan Tokens™, NFTs, digital goods, and tickets—using flexible, on-chain Buy Now, Pay Later.
+
+Remove the “Buy Now, Pay Later” button from the main page. Only show “Start Shopping.”
+
+For all featured assets, add this note:
+Note: All merchants and assets (PSG jerseys, Air France flights, Marriott hotels, UEFA Champions League tickets) shown are examples only. Real partnerships via merchant search where you can pay with June and deals are coming soon!
+
+Featured asset examples to include:
+
+PSG Home Jersey 2025
+
+Air France ticket to Paris (e.g., “AF0072, New York (JFK) to Paris (CDG), 15 Nov 2025”)
+
+Marriott Bonvoy Paris 2-night stay
+
+UEFA Champions League ticket: “Paris Saint-Germain vs Manchester City, Parc des Princes, Paris, 26 November 2025”
+
+Remove at the bottom:
+Product, How it Works, Supported Assets, Yield Generation, Pricing, Support, Help Center, Terms of Service, Privacy Policy, Contact Us.
+
+Remove the Help page.
+
+Fix or temporarily remove the Yield page if it is not functional.
+
+3. Wallet Eligibility (Moralis API Sandbox)
+Only allow Socios or MetaMask wallets on Chiliz Chain.
+
+Wallet must have at least 5 transactions and be at least 2 months old.
+
+Use Moralis API sandbox for transaction history.
+
+Moralis API documentation:
+https://docs.moralis.io/moralis-dapp/web3-api/account#get-account-transactions
+Example endpoint:
+https://deep-index.moralis.io/api/v2/{address}/transactions?chain=chiliz
+
+Use a Moralis sandbox/test API key, not a production key.
+
+Parse the returned array to count transactions and check the date of the first transaction.
+
+4. Stripe Identity Integration (Sandbox Only — Known Limitation)
+Integrate Stripe Identity for KYC using only the sandbox mode.
+
+Use only Stripe’s sandbox documentation and test API keys.
+
+Stripe Identity documentation:
+https://stripe.com/docs/identity
+Sandbox setup:
+https://stripe.com/docs/identity/testing
+Stripe Sandboxes overview:
+https://docs.stripe.com/sandboxes
+Stripe API Keys:
+https://docs.stripe.com/keys
+Stripe Connect Testing:
+https://docs.stripe.com/connect/testing
+
+Known issue: Stripe Identity sandbox currently returns “user doesn’t exist” errors for new or unregistered test users. This is a limitation of the sandbox environment and not a bug in your code.
+
+Clearly communicate to testers and jury: KYC cannot be completed in the current demo due to sandbox/test user limitations.
+
+5. TrueLayer Open Banking Integration (Sandbox Only, Mandatory — Known Limitation)
+Integrate TrueLayer Open Banking for affordability/credit check. This should be mandatory (not optional).
+
+Use only TrueLayer’s sandbox documentation and test API keys.
+
+TrueLayer documentation:
+https://truelayer.com/docs
+Sandbox setup:
+https://docs.truelayer.com/docs/sandbox-environment
+
+Known issue: TrueLayer sandbox currently returns “user doesn’t exist” errors for new or unregistered test users. This is a limitation of the sandbox environment and not a bug in your code.
+
+Clearly communicate to testers and jury: Affordability checks cannot be completed in the current demo due to sandbox/test user limitations.
+
+6. BNPL Stepper UI
+When a user clicks “Buy Now, Pay Later” on an asset:
+
+Show a clear, numbered BNPL process stepper.
+
+Each step is visually marked as “accomplished” (checkmark, green, strikethrough).
+
+All amounts and deadlines update dynamically based on the purchase amount.
+
+All payment and KYC flows must use sandbox/test environments.
+
+Example for €1,000 (should be dynamic for any amount):
+
+Down Payment: 25% (€250) due now (simulate via Stripe sandbox or test CHZ)
+
+Merchant Settlement: June pays merchant instantly (simulate in test environment)
+
+LP Capital Replenishment: Liquidity providers receive yield tokens (simulate)
+
+Installments: e.g., €250 at Day 20, €250 at Day 40 (simulate via Stripe sandbox or test CHZ)
+
+Final Payment: e.g., yield covers €246.51 at Day 60 (simulate with test yield, not real staking)
+
+Asset Release: Asset transferred to your wallet (digital assets only; simulate on testnet)
+
+7. Purchases & Payments Overview (“My Payments” Page)
+List all user BNPL purchases.
+
+For each, show:
+
+Asset details (name, image, amount)
+
+Progress through BNPL steps (show completed and pending)
+
+Days left until next payment
+
+Current interest rate or % yield (simulated)
+
+Repayment deadlines and upcoming fees
+
+Yield generated so far and how much it offsets the final payment (simulated/testnet)
+
+Transaction details/history (amounts, dates, status)
+
+8. Smart Contract Integration
+Use ethers.js or web3.js in your frontend.
+
+Network: Chiliz Spicy Testnet (RPC: https://spicy-rpc.chiliz.com)
+
+Contract address: 0x0013553e6179f0DC3C8515b80F4D8e69fB0E246e
+
+Use the latest ABI.
+
+9. Testing & Demo (Sandbox Only)
+Use the Chiliz Spicy Faucet to get test CHZ:
+https://spicy-faucet.chiliz.com/
+
+Test all flows using only sandbox/testnet APIs and test data.
+
+Prepare a demo user with a qualifying wallet and a full BNPL cycle.
+
+Clearly communicate to testers and jury:
+KYC and affordability checks will not complete due to sandbox “user doesn’t exist” errors. All other flows can be demonstrated end-to-end.
+
+10. Documentation Page & README Structure
+Documentation Navigation (left sidebar):
+Mission
+
+Benefits for Users
+
+User Flow (with prerequisites and diagram)
+
+Onboarding Flow for Merchants
+
+Tech Stack
+
+KYC and Credit History (Stripe & TrueLayer, sandbox only, with known limitations)
+
+Smart Contract
+
+Yield Generation
+
+Fees & Conditions for Users (how repayment works)
+
+Conditions for Merchants
+
+Product Strategy
+
+Troubleshooting
+
+Documentation Content Guidance:
+Mission:
+Short, clear statement of June’s purpose.
+
+Benefits for Users:
+
+Flexible payments, on-chain transparency, access to exclusive assets, etc.
+
+User Flow:
+
+Step-by-step for users, including prerequisites (wallet type, tx history, KYC, affordability check).
+
+Add a user flow diagram (use mermaid.js or an image).
+
+Example:
+
+Connect Wallet
+
+Pass KYC (Stripe Identity, sandbox, currently fails)
+
+Pass Affordability Check (TrueLayer, sandbox, currently fails)
+
+Select Asset
+
+Pay Down Payment
+
+Pay Installments
+
+Asset Release
+
+Onboarding Flow for Merchants:
+
+How merchants can join, what they need, and future partnership plans.
+
+Tech Stack:
+
+Chiliz Chain, Solidity, ethers.js, React, Moralis API, Stripe Identity, TrueLayer, etc.
+
+KYC and Credit History:
+
+Step-by-step on how Stripe and TrueLayer sandbox integrations work.
+
+Known limitation: Both return “user doesn’t exist” errors in sandbox mode. This is a limitation of the sandbox/test environment, not a bug in the code.
+
+Smart Contract:
+
+Overview of contract logic, address, and ABI location.
+
+Yield Generation:
+
+How users can stake CHZ (testnet only), how yield is simulated, and how it offsets repayments.
+
+Fees & Conditions for Users:
+
+Downpayment %, installment schedule, late fees, asset release conditions, etc.
+
+Conditions for Merchants:
+
+How and when merchants get paid, future partnership onboarding.
+
+Product Strategy:
+
+Vision for scaling, merchant search, real partnerships, and roadmap.
+
+Troubleshooting:
+
+Common issues (sandbox KYC, TrueLayer user not found, wallet not eligible) and solutions.
+
+For all featured assets:
+Add the note:
+Note: All merchants and assets (PSG jerseys, Air France flights, Marriott hotels, UEFA Champions League tickets) shown are examples only. Real partnerships via merchant search where you can pay with June and deals are coming soon!
+
+Example featured asset flows:
+
+Buy a PSG Home Jersey 2025
+
+Buy an Air France ticket to Paris: “AF0072, New York (JFK) to Paris (CDG), 15 Nov 2025”
+
+Book a Marriott Bonvoy Paris 2-night stay
+
+Buy a UEFA Champions League ticket: “Paris Saint-Germain vs Manchester City, Parc des Princes, Paris, 26 November 2025”
+
+11. README File Example
+text
+# June BNPL on Chiliz Chain
+
+June lets Socios and Chiliz users buy what they love—Fan Tokens™, NFTs, digital goods, and tickets—using flexible, on-chain Buy Now, Pay Later.
+
+## Quick Start
+
+1. Clone the repo: https://github.com/tatdz/june-chilizBNPL
+2. Install dependencies: npm install
+3. Connect to Chiliz Spicy Testnet (https://spicy-rpc.chiliz.com)
+4. Use only sandbox/test credentials for all external APIs (Moralis, Stripe, TrueLayer)
+5. Contract address: 0x0013553e6179f0DC3C8515b80F4D8e69fB0E246e
+
+## Documentation
+
+See full documentation in the /docs folder or at [your documentation site].
+
+## Important Notes
+
+- All integrations use sandbox/test environments and test credentials only.
+- Stripe Identity and TrueLayer sandbox integrations currently fail with "user doesn't exist" errors. This is a sandbox limitation, not a bug.
+- All merchants and assets shown are examples only.
+- No reference to old contract addresses remains in the repo.
+
+## Useful Links
+
+Chiliz Docs: https://docs.chiliz.com  
+Moralis API: https://docs.moralis.io/moralis-dapp/web3-api/account#get-account-transactions  
+Stripe Identity: https://stripe.com/docs/identity  
+Stripe Identity Testing: https://stripe.com/docs/identity/testing  
+Stripe Sandboxes: https://docs.stripe.com/sandboxes  
+Stripe API Keys: https://docs.stripe.com/keys  
+Stripe Connect Testing: https://docs.stripe.com/connect/testing  
+TrueLayer: https://truelayer.com/docs  
+TrueLayer Sandbox: https://docs.truelayer.com/docs/sandbox-environment  
+Ethers.js: https://docs.ethers.org/v6/  
+Web3.js: https://web3js.readthedocs.io/  
+Shadcn UI: https://ui.shadcn.com/  
+Tailwind UI: https://tailwindui.com/  
+Chiliz Spicy Explorer: https://spicy.routescan.io/  
+Chiliz Faucet: https://spicy-faucet.chiliz.com/  
+Chiliz Spicy Testnet RPC: https://spicy-rpc.chiliz.com  

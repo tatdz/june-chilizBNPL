@@ -1,0 +1,260 @@
+June BNPL on Chiliz Chain — Replit Hackathon Integration Prompt
+1. Repository & Security Preparation
+Delete any reference to the old smart contract address from your entire GitHub repository, including all code files, documentation, and the README.
+
+This is essential for security, clarity, and to avoid confusion during the hackathon demo.
+
+2. New Smart Contract Details
+Contract Address:
+0x0013553e6179f0DC3C8515b80F4D8e69fB0E246e
+
+Network:
+Chiliz Spicy Testnet
+
+Explorer:
+https://spicy.routescan.io/address/0x0013553e6179f0DC3C8515b80F4D8e69fB0E246e
+
+ABI:
+Use the ABI from your latest, secure contract.
+
+3. Wallet Eligibility & Verification (Sandbox Only)
+Only allow Socios or MetaMask wallets connected to Chiliz Chain.
+
+Wallet must have at least 5 transactions and be at least 2 months old.
+
+Wallet must not be blacklisted.
+
+API Integration:
+
+Use Moralis API sandbox for transaction history:
+
+Docs: https://docs.moralis.io/moralis-dapp/web3-api/account#get-account-transactions
+
+Endpoint:
+https://deep-index.moralis.io/api/v2/{address}/transactions?chain=chiliz
+
+Use a Moralis sandbox/test account and API key for all calls.
+
+Parse the returned array to count transactions and check the date of the first transaction.
+
+Do not use live API keys or production data.
+
+4. KYC & Affordability Check (Sandbox Only)
+Stripe Identity API:
+
+Use the official Stripe sandbox for all KYC flows.
+
+Docs: https://stripe.com/docs/identity
+
+Sandbox setup: https://stripe.com/docs/identity/testing
+
+Stripe Sandboxes overview: https://docs.stripe.com/sandboxes
+
+Obtain sandbox API keys from your Stripe dashboard: https://docs.stripe.com/keys
+
+Simulate KYC flows and use test data only (no real identities or documents).
+
+For account onboarding and verification, see: https://docs.stripe.com/connect/testing-verification
+
+TrueLayer Open Banking API:
+
+Use the TrueLayer sandbox for all affordability checks and bank data.
+
+Docs: https://truelayer.com/docs
+
+Sandbox setup: https://docs.truelayer.com/docs/sandbox-environment
+
+Only use sandbox API keys and test user data.
+
+5. BNPL Stepper UI (Dynamic, Sandbox-Driven)
+When a user clicks “Buy Now, Pay Later” on an asset:
+
+Display a clear, numbered BNPL process stepper.
+
+Each step should be marked as “accomplished” when completed (checkmark, green highlight, strikethrough).
+
+All amounts and deadlines update dynamically based on the purchase amount.
+
+All payment and KYC flows must use sandbox/test environments.
+
+Example for €1,000 (should be dynamic for any amount):
+
+Down Payment: 25% (€250) due now (simulate via Stripe sandbox or test CHZ)
+
+Merchant Settlement: June pays merchant instantly (simulate in test environment)
+
+LP Capital Replenishment: Liquidity providers receive yield tokens (simulate)
+
+Installments: e.g., €250 at Day 20, €250 at Day 40 (simulate via Stripe sandbox or test CHZ)
+
+Final Payment: e.g., yield covers €246.51 at Day 60 (simulate with test yield, not real staking)
+
+Asset Release: Asset transferred to your wallet (digital assets only; simulate on testnet)
+
+UI Libraries:
+
+Shadcn UI: https://ui.shadcn.com/
+
+Tailwind UI: https://tailwindui.com/
+
+6. Yield Generation Flow (Testnet/Mock Only)
+“Enable Yield Generation” button.
+
+Clearly explain:
+“Deposit crypto to generate yield and potentially reduce your final payment by up to €X.XX.”
+
+When clicked, prompt the user’s wallet to deposit test CHZ for staking (simulate or use testnet staking contract).
+
+Show confirmation, estimated APY, and potential savings (all simulated/testnet).
+
+If using a yield SDK, use its sandbox/testnet mode only.
+
+Chiliz Staking Docs:
+https://docs.chiliz.com/
+
+7. Purchases & Payments Overview (“My Payments” Page)
+List all user BNPL purchases.
+
+For each, show:
+
+Asset details (name, image, amount)
+
+Progress through BNPL steps (show completed and pending)
+
+Days left until next payment
+
+Current interest rate or % yield (simulated)
+
+Repayment deadlines and upcoming fees
+
+Yield generated so far and how much it offsets the final payment (simulated/testnet)
+
+Transaction details/history (amounts, dates, status)
+
+8. Main Page Simplification
+Remove the “Buy Now, Pay Later” button from the main page.
+
+Only show the “Start Shopping” button.
+
+9. Smart Contract Integration
+Use ethers.js or web3.js in your frontend.
+
+Set the network to Chiliz Spicy Testnet (RPC: https://spicy-rpc.chiliz.com).
+
+Interact with the contract at 0x0013553e6179f0DC3C8515b80F4D8e69fB0E246e for:
+
+Purchase creation (with downpayment)
+
+Installment repayments
+
+Asset release (for digital assets only)
+
+Querying user purchases and purchase power
+
+10. Testing & Demo (Sandbox Only)
+Use the Chiliz Spicy Faucet to get test CHZ.
+
+Test all flows: wallet eligibility, KYC, downpayment, installment, staking, and asset release.
+
+Prepare a demo user with a qualifying wallet and a full BNPL cycle.
+
+All payment, KYC, and banking flows must use sandbox/testnet APIs and test data only.
+
+11. Useful Links (Full Text)
+GitHub Repo: https://github.com/tatdz/june-chilizBNPL
+
+Chiliz Docs: https://docs.chiliz.com
+
+Socios Wallet Dev: https://reown.com/developers
+
+Moralis API: https://docs.moralis.io/moralis-dapp/web3-api/account#get-account-transactions
+
+Tatum API: https://apidoc.tatum.io/tag/Chiliz
+
+Stripe Identity: https://stripe.com/docs/identity
+
+Stripe Identity Testing: https://stripe.com/docs/identity/testing
+
+Stripe Sandboxes: https://docs.stripe.com/sandboxes
+
+Stripe API Keys: https://docs.stripe.com/keys
+
+Stripe Connect Testing: https://docs.stripe.com/connect/testing
+
+TrueLayer: https://truelayer.com/docs
+
+TrueLayer Sandbox: https://docs.truelayer.com/docs/sandbox-environment
+
+Ethers.js: https://docs.ethers.org/v6/
+
+Web3.js: https://web3js.readthedocs.io/
+
+Shadcn UI: https://ui.shadcn.com/
+
+Tailwind UI: https://tailwindui.com/
+
+Chiliz Spicy Explorer: https://spicy.routescan.io/
+
+Chiliz Faucet: https://spicy-faucet.chiliz.com/
+
+Chiliz Spicy Testnet RPC: https://spicy-rpc.chiliz.com
+
+12. Integration Steps (Summary)
+Clone your repo on Replit:
+https://github.com/tatdz/june-chilizBNPL
+
+Delete any reference to the old smart contract address from all code, documentation, and README.
+
+Install dependencies:
+npm install
+
+Connect frontend to new smart contract:
+
+Use ethers.js or web3.js
+
+Network: Chiliz Spicy Testnet
+
+Address: 0x0013553e6179f0DC3C8515b80F4D8e69fB0E246e
+
+Use latest ABI
+
+Implement wallet eligibility check:
+
+Use Moralis API sandbox
+
+Block ineligible wallets
+
+Integrate Stripe Identity & TrueLayer:
+
+Use only sandbox/test API keys
+
+Store verification status in app state
+
+Upgrade BNPL stepper UI:
+
+Use React state and Shadcn/Tailwind UI components
+
+Implement staking/yield flow:
+
+Add staking modal
+
+Connect to Chiliz staking contract on testnet or simulate
+
+Build “My Payments” page:
+
+Fetch purchase data from contract
+
+Display all required info
+
+Simplify main page:
+
+Remove “Buy Now, Pay Later” button
+
+Keep “Start Shopping”
+
+Test end-to-end:
+
+Use test wallets, CHZ, and all sandbox APIs
+
+Ensure every step is visually and functionally robust
+

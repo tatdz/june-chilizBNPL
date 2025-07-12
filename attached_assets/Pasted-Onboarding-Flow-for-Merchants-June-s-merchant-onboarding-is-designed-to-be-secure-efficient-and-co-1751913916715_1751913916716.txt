@@ -1,0 +1,115 @@
+Onboarding Flow for Merchants
+June’s merchant onboarding is designed to be secure, efficient, and compliant with industry standards. Here’s how merchants can join and start offering BNPL:
+
+Application Submission
+
+Complete a digital application via the June merchant portal.
+
+Provide business details (legal entity, registration number, country, contact info).
+
+Compliance & Risk Review
+
+June verifies business legitimacy and ownership.
+
+AML (Anti-Money Laundering) and KYC (Know Your Customer) checks are performed.
+
+Merchants agree to June’s terms of service and compliance standards.
+
+Integration & Testing
+
+Approved merchants receive access to the June merchant dashboard.
+
+Technical support is provided for integrating June’s BNPL API or checkout widget.
+
+Test transactions are conducted to ensure seamless operation.
+
+Go Live & Support
+
+Merchants can start offering BNPL to customers.
+
+Ongoing support and training are available.
+
+This streamlined onboarding helps merchants quickly unlock new customers and boost sales with June’s DeFi-powered BNPL.
+
+Fees & Conditions for Users
+June’s BNPL is transparent and user-friendly. Here’s what users can expect:
+
+Down Payment:
+Pay an initial down payment (typically 25% of the purchase price) at checkout, using either fiat (via Stripe) or CHZ from your wallet.
+
+Installments:
+The remaining amount is split into equal installments over a fixed schedule (e.g., 3 payments over 60 days). Payment reminders and due dates are clearly communicated.
+
+Yield Generation:
+Users can enable yield by staking CHZ during repayment. Earned yield can offset the final installment, reducing your total cost.
+
+Late Fees:
+Late payments may incur a fixed fee or percentage penalty, always disclosed in advance.
+
+Eligibility:
+
+Must be 18+ and legally able to contract.
+
+Pass KYC (Stripe Identity, sandbox; currently limited) and affordability checks (TrueLayer, sandbox; currently limited).
+
+Use a supported wallet (Socios or MetaMask) with at least 5 transactions and 2+ months’ history.
+
+Repayment:
+Repay via fiat (Stripe) or CHZ. Missed payments may restrict future BNPL eligibility.
+
+All fees and repayment conditions are disclosed before purchase. There are no hidden fees or interest for on-time payments.
+
+Conditions for Merchants
+Merchants benefit from June’s BNPL by increasing conversion and order value, while accepting the following conditions:
+
+Merchant Fees:
+Merchants pay a transaction fee to June for each BNPL purchase, typically ranging from 3% to 6% of the order value, depending on volume and agreement. This is in line with industry standards (e.g., Klarna).
+
+Payout Timing:
+Merchants receive the full order value (minus fees) within 24–48 hours of purchase, supporting healthy cash flow.
+
+Integration:
+Merchants must integrate June’s BNPL checkout or API. Technical support is provided.
+
+Compliance:
+Merchants must comply with AML/KYC regulations and June’s terms of service.
+
+Customer Experience:
+Merchants are expected to provide accurate product info, timely fulfillment, and support for BNPL customers.
+
+Dispute Resolution:
+June mediates payment disputes or chargebacks per industry best practices.
+
+June’s merchant program is designed for growth, transparency, and minimal operational overhead.
+
+Product Strategy
+June’s strategy is to set the standard for transparent, flexible, and DeFi-powered BNPL:
+
+User-Centric BNPL:
+Seamless, on-chain BNPL with instant eligibility, flexible repayments, and optional yield generation.
+
+Merchant Empowerment:
+Fast onboarding, transparent fees (3%–6%), and rapid payouts to help merchants grow.
+
+DeFi Integration:
+Leverage Chiliz Chain and staking to enable yield on repayments—users can “pay as they earn.”
+
+Scalable Partnerships:
+Expand the merchant network through easy API integrations and merchant tools.
+
+Regulatory Compliance:
+Stay ahead of evolving BNPL regulations and best practices for user and merchant safety.
+
+Growth Roadmap:
+
+Launch with digital goods, Fan Tokens, NFTs, and event tickets.
+
+Expand to travel, hospitality, and more.
+
+Introduce loyalty and rewards for responsible repayment.
+
+Enable real-time merchant search and deal discovery.
+
+Continuously improve KYC/affordability flows as APIs mature.
+
+June aims to redefine BNPL for the web3 era, making flexible payments accessible and rewarding for all.

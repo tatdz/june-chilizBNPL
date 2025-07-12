@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Jersey Body -->
+  <path d="M60 80 L60 220 L140 220 L140 80 L130 70 L120 50 L80 50 L70 70 Z" 
+        fill="#1a365d" stroke="#2d3748" stroke-width="2"/>
+  
+  <!-- Jersey Sleeves -->
+  <path d="M60 80 L40 90 L35 130 L45 140 L60 130 Z" 
+        fill="#1a365d" stroke="#2d3748" stroke-width="2"/>
+  <path d="M140 80 L160 90 L165 130 L155 140 L140 130 Z" 
+        fill="#1a365d" stroke="#2d3748" stroke-width="2"/>
+  
+  <!-- Jersey Collar -->
+  <path d="M80 50 L120 50 L115 60 L100 65 L85 60 Z" 
+        fill="#2d3748" stroke="#4a5568" stroke-width="1"/>
+  
+  <!-- Jersey Number -->
+  <text x="100" y="150" text-anchor="middle" font-family="Arial Black" font-size="40" fill="white" font-weight="bold">10</text>
+  
+  <!-- Jersey Stripes -->
+  <rect x="70" y="90" width="60" height="4" fill="#4299e1"/>
+  <rect x="70" y="110" width="60" height="4" fill="#4299e1"/>
+  <rect x="70" y="130" width="60" height="4" fill="#4299e1"/>
+  
+  <!-- Soccer Ball -->
+  <circle cx="100" cy="190" r="12" fill="white" stroke="#2d3748" stroke-width="2"/>
+  <path d="M88 190 L112 190 M100 178 L100 202 M94 184 L106 196 M106 184 L94 196" 
+        stroke="#2d3748" stroke-width="1.5"/>
+</svg>

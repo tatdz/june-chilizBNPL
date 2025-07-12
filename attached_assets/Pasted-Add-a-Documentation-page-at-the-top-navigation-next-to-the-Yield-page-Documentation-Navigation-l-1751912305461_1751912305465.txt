@@ -1,0 +1,82 @@
+Add a Documentation page at the top navigation, next to the Yield page.
+
+Documentation Navigation (left sidebar):
+
+Mission
+
+Benefits for Users
+
+User Flow (with prerequisites and diagram)
+
+Onboarding Flow for Merchants
+
+Tech Stack
+
+KYC and Credit History (Stripe & TrueLayer, sandbox only, with known limitations)
+
+Smart Contract
+
+Yield Generation
+
+Fees & Conditions for Users (how repayment works)
+
+Conditions for Merchants
+
+Product Strategy
+
+Troubleshooting
+
+Content Guidance:
+
+Mission:
+Short, clear statement of June’s purpose.
+
+Benefits for Users:
+Flexible payments, on-chain transparency, access to exclusive assets, etc.
+
+User Flow:
+Step-by-step for users, including prerequisites (wallet type, tx history, KYC, affordability check).
+Add a user flow diagram (use mermaid.js or an image).
+Example steps:
+
+Connect Wallet
+
+Pass KYC (Stripe Identity, sandbox, currently fails)
+
+Pass Affordability Check (TrueLayer, sandbox, currently fails)
+
+Select Asset
+
+Pay Down Payment
+
+Pay Installments
+
+Asset Release
+
+Onboarding Flow for Merchants:
+How merchants can join, what they need, and future partnership plans.
+
+Tech Stack:
+Chiliz Chain, Solidity, ethers.js, React, Moralis API, Stripe Identity, TrueLayer, etc.
+
+KYC and Credit History:
+Step-by-step on how Stripe and TrueLayer sandbox integrations work.
+Known limitation: Both return “user doesn’t exist” errors in sandbox mode. This is a limitation of the sandbox/test environment, not a bug in the code.
+
+Smart Contract:
+Overview of contract logic, address, and ABI location.
+
+Yield Generation:
+How users can stake CHZ (testnet only), how yield is simulated, and how it offsets repayments.
+
+Fees & Conditions for Users:
+Downpayment %, installment schedule, late fees, asset release conditions, etc.
+
+Conditions for Merchants:
+How and when merchants get paid, future partnership onboarding.
+
+Product Strategy:
+Vision for scaling, merchant search, real partnerships, and roadmap.
+
+Troubleshooting:
+Common issues (sandbox KYC, TrueLayer user not found, wallet not eligible) and solutions.

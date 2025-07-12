@@ -1,0 +1,67 @@
+Replace all references to the old JuneBNPL contract address with the new one:
+0x887a870cBB2b03Ef2cD428BbF2d769D60e55B230
+
+Remove all references to the old KayenPool smart contract address.
+
+Replace with the Kayen Protocol V2 Router address:
+0x94448122c3F4276CDFA8C190249da4C1c736eEab
+
+Ensure all code, documentation, app UI, and GitHub README are updated.
+
+In the README and documentation, add a link to verify the new JuneBNPL contract on Chiliscan:
+
+View on Chiliscan
+
+Checklist
+Codebase
+
+ Replace all instances of the old JuneBNPL contract address with 0x887a870cBB2b03Ef2cD428BbF2d769D60e55B230.
+
+ Remove all references to the old KayenPool contract address.
+
+ Replace with the Kayen Protocol V2 Router address: 0x94448122c3F4276CDFA8C190249da4C1c736eEab.
+
+ Update any contract ABIs or interfaces if needed.
+
+App UI
+
+ Update contract addresses in frontend configuration or environment files.
+
+ Remove any UI elements or logic specific to KayenPool.
+
+ Ensure all on-chain links (e.g., to contract addresses) point to the correct new addresses.
+
+Documentation & README
+
+ Replace all old contract addresses with the new ones.
+
+ Remove all references and descriptions of KayenPool.
+
+ Clearly state that Kayen Protocol V2 Router is now used, with its address.
+
+ Add this verification link for the new JuneBNPL contract:
+View on Chiliscan
+
+Testing
+
+ Deploy the app using the new addresses.
+
+ Test all contract interactions on Chiliz Spicy Testnet.
+
+ Fix any errors or broken flows resulting from the address or interface changes.
+
+ Confirm all explorer links work and display the correct contract on Chiliscan.
+
+Example README Section
+text
+## Smart Contract Addresses
+
+- **JuneBNPL:** [`0x887a870cBB2b03Ef2cD428BbF2d769D60e55B230`](https://spicy.routescan.io/address/0x887a870cBB2b03Ef2cD428BbF2d769D60e55B230)
+- **Kayen Protocol V2 Router:** `0x94448122c3F4276CDFA8C190249da4C1c736eEab`
+
+> _Note: The previous KayenPool contract is no longer used. All liquidity operations now route through the official Kayen Protocol V2 Router._
+
+### Verify on Chiliscan
+
+You can verify the JuneBNPL contract and all transactions here:  
+[https://spicy.routescan.io/address/0x887a870cBB2b03Ef2cD428BbF2d769D60e55B230](https://spicy.routescan.io/address/0x887a870cBB2b03Ef2cD428BbF2d769D60e55B230)

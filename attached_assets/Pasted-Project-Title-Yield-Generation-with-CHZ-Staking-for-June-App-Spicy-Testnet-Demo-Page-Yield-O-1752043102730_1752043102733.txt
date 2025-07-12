@@ -1,0 +1,128 @@
+Project Title:
+Yield Generation with CHZ Staking for June App (Spicy Testnet Demo)
+
+Page:
+"Yield"
+
+Overview:
+Create a React (or Next.js) page for the June app that enables users to:
+
+Connect their wallet (MetaMask/WalletConnect) to Spicy Testnet (Chiliz Chain)
+
+Stake extra CHZ via the official staking contract (0x0000000000000000000000000000000000001000)
+
+Choose a validator, view commission rates and voting power (display this info, or provide a link to validator explorer)
+
+See their staked CHZ, pending staking rewards, and total CHZ balance
+
+Withdraw staking rewards and use them to offset BNPL installment repayments (simulate this by showing a reduced owed amount)
+
+Display real transaction hashes and full explorer links for every action
+
+Educate users about staking, validator choice, and how rewards work (use info from docs)
+
+Requirements:
+
+Use ethers.js or viem for blockchain interaction
+
+Use the official Staking contract ABI (from https://docs.chiliz.com/learn/glossary/staking)
+
+All links must be shown as full text (not hyperlinks)
+
+For every transaction, display the hash and a “Verify on Explorer” button that opens
+http://spicy-explorer.chiliz.com/tx/<transaction_hash> in a new tab
+
+UI and terminology should match the June app:
+
+“Stake CHZ”
+
+“Pending Rewards”
+
+“Withdraw Rewards to Offset Installment”
+
+“Total Owed” (show how rewards reduce this)
+
+Minimum stake: 0.01 CHZ (from docs)
+
+Add educational tooltips or info boxes about:
+
+Validator commission rates
+
+Voting power
+
+How staking rewards are compounded and distributed
+
+Provide a link to the validator explorer as full text:
+https://spicy-governance.chilizchain.com/staking
+
+UI Flow:
+
+Connect Wallet (show network, must be Spicy Testnet)
+
+Stake CHZ:
+
+Input: amount (min 0.01), validator address (default to a known validator, or let user pick from a list)
+
+Show validator info (commission, voting power, link to validator explorer)
+
+“Stake” button
+
+Show transaction hash and full explorer link (e.g.,
+http://spicy-explorer.chiliz.com/tx/<hash>)
+
+Dashboard:
+
+Show user’s CHZ balance, staked amount, pending rewards, and “Total Owed” for BNPL
+
+“Withdraw Rewards to Offset Installment” button
+
+Input: amount to withdraw
+
+After withdrawal, simulate reducing “Total Owed” by the withdrawn amount
+
+Show withdrawal transaction hash and full explorer link
+
+Recent Transactions:
+
+List of recent staking/withdrawal tx hashes with full explorer links and “Verify on Explorer” button
+
+References (display as full text in UI/documentation):
+
+Chiliz Staking Docs: https://docs.chiliz.com/learn/glossary/staking
+
+Staking Rewards: https://docs.chiliz.com/learn/about-staking/staking-rewards
+
+Spicy Testnet Explorer: http://spicy-explorer.chiliz.com/
+
+Validator Explorer: https://spicy-governance.chilizchain.com/staking
+
+Spicy Testnet RPC: https://spicy-rpc.chiliz.com/
+
+Faucet: https://spicy-faucet.chiliz.com/
+
+Example Code Snippets:
+
+javascript
+// Connect wallet and provider
+import { ethers } from 'ethers';
+
+const provider = new ethers.BrowserProvider(window.ethereum);
+const signer = await provider.getSigner();
+const stakingAbi = [ /* ABI from https://docs.chiliz.com/learn/glossary/staking */ ];
+const stakingAddress = "0x0000000000000000000000000000000000001000";
+const stakingContract = new ethers.Contract(stakingAddress, stakingAbi, signer);
+
+// Stake CHZ
+async function stakeCHZ(validatorAddress, amount) {
+  const tx = await stakingContract.delegate(validatorAddress, amount);
+  await tx.wait();
+  alert(`Staking tx sent! Hash: ${tx.hash}\nVerify: http://spicy-explorer.chiliz.com/tx/${tx.hash}`);
+}
+
+// Withdraw rewards and offset BNPL
+async function withdrawRewards(validatorAddress, amount) {
+  const tx = await stakingContract.withdrawReward(validatorAddress, amount);
+  await tx.wait();
+  alert(`Withdraw tx sent! Hash: ${tx.hash}\nVerify: http://spicy-explorer.chiliz.com/tx/${tx.hash}`);
+  // Simulate reducing BNPL owed amount in UI
+}
